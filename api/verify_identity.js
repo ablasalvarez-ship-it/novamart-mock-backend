@@ -3,7 +3,7 @@ const IDENTITIES = {
   "10000002": { postcode: "10001", customer_name: "Sam Patel" }
 };
 
-export default function handler(req, res) {
+module.exports = (req, res) => {
   const { account_number, postcode } = req.body || {};
   const record = IDENTITIES[account_number];
   if (!record || record.postcode !== postcode) {
@@ -14,4 +14,4 @@ export default function handler(req, res) {
     customer_name: record.customer_name,
     account_number
   });
-}
+};
